@@ -262,7 +262,7 @@ window.addEventListener("scroll", () => {
 // --------------------------------
 // LIGHT/DARK SECTION DETECTION
 // --------------------------------
-
+/*
 const sections = document.querySelectorAll(".section");
 
 window.addEventListener("scroll", () => {
@@ -283,7 +283,7 @@ window.addEventListener("scroll", () => {
         }
     });
 });
-
+*/
 // --------------------------------
 // PRELOADER
 // --------------------------------
