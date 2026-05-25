@@ -50,6 +50,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
 
+    <!-- Calendly -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
     <!-- STRUCTURED DATA -->
     <script type="application/ld+json">
   {
@@ -66,12 +69,24 @@
       "addressCountry": "Canada"
     },
     "sameAs": [
-      "https://www.linkedin.com/",
-      "https://www.instagram.com/",
-      "https://twitter.com/"
+      "https://www.linkedin.com/company/stellaris-xr-studios/",
+      "https://x.com/StellarisXR"
     ]
   }
   </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Stellaris XR Studios",
+  "url": "https://stellarisxr.com",
+  "description": "XR, VR applications, immersive business experiences and cinematic games from Halifax, Canada.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Stellaris XR Studios"
+  }
+}
+</script>
 </head>
 
 <body>
@@ -87,7 +102,7 @@
     <header class="site-header">
         <nav class="nav">
             <a href="index.html" class="logo">
-                <img src="assets/stellaris-wordmark-white.png" alt="Stellaris XR Studios Logo" loading="lazy" />
+                <img src="assets/logo-white.png" alt="Stellaris XR Studios Logo" loading="lazy" />
             </a>
 
             <div class="nav-links">
@@ -266,9 +281,26 @@
 
                     <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none;" />
 
-                    <button type="submit" class="btn-primary">Request Demo</button>
+                    <div class="cta-button-group">
+
+                        <button type="submit" class="btn-primary">
+                            Request Demo
+                        </button>
+
+                        <div class="calendly-divider">
+                            <span>OR</span>
+                        </div>
+
+                        <a href="#" class="btn-primary" onclick="Calendly.initPopupWidget({
+      url: 'https://cal.com/stellarisxr/consultation'
+    }); return false;">
+                            Schedule a Call
+                        </a>
+
+                    </div>
                 </form>
             </div>
+
         </section>
 
     </main>
@@ -336,6 +368,7 @@
             </div>
     </footer>
 
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="script.js"></script>
 </body>
 
