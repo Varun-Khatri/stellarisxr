@@ -21,12 +21,43 @@
     <meta property="og:url" content="https://stellarisxr.com/contact.html" />
     <meta property="og:image" content="https://stellarisxr.com/assets/og-image.jpg" />
 
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Stellaris XR Studios",
+    "url": "https://stellarisxr.com",
+    "logo": "https://stellarisxr.com/assets/logo-white.png",
+    "description": "XR studio creating immersive VR experiences, business applications and games.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Halifax",
+      "addressRegion": "Nova Scotia",
+      "addressCountry": "Canada"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/stellaris-xr-studios/",
+      "https://x.com/StellarisXR"
+    ]
+  }
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Stellaris XR Studios",
+  "url": "https://stellarisxr.com/contact.html",
+  "description": "Contact Stellaris XR Studios to request a demo for XR, VR apps, immersive business solutions or cinematic games."
+}
+</script>
 </head>
 
 <body>
@@ -42,7 +73,7 @@
     <header class="site-header">
         <nav class="nav">
             <a href="index.html" class="logo">
-                <img src="assets/stellaris-wordmark-white.png" alt="Stellaris XR Studios Logo" loading="lazy" />
+                <img src="assets/logo-white.png" alt="Stellaris XR Studios Logo" loading="lazy" />
             </a>
 
             <div class="nav-links">
@@ -141,7 +172,23 @@
 
                     <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none;" />
 
-                    <button type="submit" class="btn-primary">Request Demo</button>
+                    <div class="cta-button-group">
+
+                        <button type="submit" class="btn-primary">
+                            Request Demo
+                        </button>
+
+                        <div class="calendly-divider">
+                            <span>OR</span>
+                        </div>
+
+                        <a href="#" class="btn-primary" onclick="Calendly.initPopupWidget({
+      url: 'https://cal.com/stellarisxr/consultation'
+    }); return false;">
+                            Schedule a Call
+                        </a>
+
+                    </div>
                 </form>
 
             </div>
@@ -223,6 +270,7 @@
             </div>
     </footer>
 
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="script.js"></script>
 </body>
 

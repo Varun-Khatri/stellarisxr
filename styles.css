@@ -74,7 +74,7 @@ textarea {
 }
 
 .logo img {
-    height: 200px;
+    height: 100px;
     width: auto;
 }
 
@@ -893,4 +893,51 @@ a {
 .social-links svg {
     width: 18px;
     height: 18px;
+}
+
+.calendly-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    margin: 32px 0 24px;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.calendly-divider::before,
+.calendly-divider::after {
+    content: "";
+
+    width: 80px;
+    height: 1px;
+
+    background:
+        linear-gradient(to right,
+            transparent,
+            rgba(255, 255, 255, 0.18),
+            transparent);
+}
+
+.calendly-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.cta-button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta-button-group .btn-primary {
+    width: 320px;
+    justify-content: center;
 }
