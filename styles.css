@@ -306,8 +306,8 @@ textarea {
 .services-grid {
     margin-top: 56px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
 }
 
 .service-card {
@@ -940,4 +940,121 @@ a {
 .cta-button-group .btn-primary {
     width: 320px;
     justify-content: center;
+}
+
+
+.image-service-card {
+    aspect-ratio: 16 / 9;
+    min-height: unset;
+    padding: 0;
+    justify-content: flex-end;
+    isolation: isolate;
+    cursor: pointer;
+}
+
+.image-service-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition:
+        transform 0.55s var(--ease),
+        filter 0.55s var(--ease);
+}
+
+.image-service-card::before {
+    inset: 0;
+    width: auto;
+    height: auto;
+    background:
+        linear-gradient(to top,
+            rgba(0, 0, 0, 0.86) 0%,
+            rgba(0, 0, 0, 0.54) 36%,
+            rgba(0, 0, 0, 0.08) 100%);
+    filter: none;
+    opacity: 1;
+    z-index: 1;
+}
+
+.image-service-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(71, 209, 254, 0.08);
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+    z-index: 2;
+}
+
+.service-card-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding: 22px;
+    transform: translateY(calc(100% - 3.3rem));
+    transition: transform 0.4s var(--ease);
+}
+
+.image-service-card h3 {
+    margin-bottom: 10px;
+    color: var(--white);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.75);
+}
+
+.image-service-card p {
+    opacity: 0;
+    transform: translateY(10px);
+    color: rgba(255, 255, 255, 0.82);
+    transition:
+        opacity 0.35s var(--ease),
+        transform 0.35s var(--ease);
+}
+
+.image-service-card:hover img,
+.image-service-card:focus-within img,
+.image-service-card:focus img {
+    transform: scale(1.06);
+    filter: brightness(0.78);
+}
+
+.image-service-card:hover::after,
+.image-service-card:focus-within::after,
+.image-service-card:focus::after {
+    opacity: 1;
+}
+
+.image-service-card:hover .service-card-content,
+.image-service-card:focus-within .service-card-content,
+.image-service-card:focus .service-card-content {
+    transform: translateY(0);
+}
+
+.image-service-card:hover p,
+.image-service-card:focus-within p,
+.image-service-card:focus p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-service-card:focus {
+    outline: 2px solid var(--cyan);
+    outline-offset: 4px;
+}
+
+@media (max-width: 980px) {
+    .games-projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .games-projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card-content {
+        padding: 20px;
+    }
 }
