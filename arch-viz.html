@@ -27,6 +27,7 @@
         rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
     <script type="application/ld+json">
   {
@@ -108,7 +109,12 @@
                 <a href="contact.html">Contact</a>
             </div>
 
-            <a href="contact.html" class="nav-cta">Request a Demo</a>
+            <div class="nav-actions">
+                <a href="contact.html" class="nav-cta">Request a Demo</a>
+                <a href="#"
+                    onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;"
+                    class="nav-cta">Schedule a Call</a>
+            </div>
             <button class="mobile-menu-button">☰</button>
         </nav>
     </header>
@@ -126,13 +132,22 @@
         <a href="games.html">Games</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="#"
+            onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;">Schedule
+            a Call</a>
 
     </div>
 
     <main>
 
-        <section class="hero">
-            <div class="hero-bg"></div>
+        <section class="hero on-dark">
+            <div class="hero-bg">
+                <video class="hero-video active" autoplay muted playsinline preload="auto">
+                    <source src="assets/hero2.webm" type="video/webm">
+                    <source src="assets/hero2.mp4" type="video/mp4">
+                </video>
+                <div class="hero-scrim"></div>
+            </div>
 
             <div class="hero-content">
                 <p class="eyebrow">Architectural Visualization XR</p>
@@ -176,29 +191,45 @@
                 <h2 class="section-title">From concept to immersive walkthrough.</h2>
 
                 <div class="services-grid">
-                    <div class="service-card">
-                        <h3>VR Walkthroughs</h3>
-                        <p>Interactive property experiences for residential, commercial and mixed-use developments.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/arch-walkthroughs.png" alt="VR property walkthrough" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>VR Walkthroughs</h3>
+                            <p>Interactive property experiences for residential, commercial and mixed-use developments.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Interactive Floor Plans</h3>
-                        <p>Explore layouts, finishes, rooms and design options in a clear immersive interface.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/arch-floor-plans.png" alt="Interactive floor plan" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Interactive Floor Plans</h3>
+                            <p>Explore layouts, finishes, rooms and design options in a clear immersive interface.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Sales Experiences</h3>
-                        <p>Premium presentation tools for real estate sales teams and development launches.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/arch-sales.png" alt="Real estate sales presentation" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Sales Experiences</h3>
+                            <p>Premium presentation tools for real estate sales teams and development launches.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Design Review</h3>
-                        <p>Visualize proportions, materials and spatial flow before construction begins.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/arch-design-review.png" alt="Architectural design review" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Design Review</h3>
+                            <p>Visualize proportions, materials and spatial flow before construction begins.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Marketing Visuals</h3>
-                        <p>Cinematic renders, interactive scenes and digital assets for launch campaigns.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/arch-marketing.png" alt="Cinematic marketing render" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Marketing Visuals</h3>
+                            <p>Cinematic renders, interactive scenes and digital assets for launch campaigns.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -313,8 +344,10 @@
             <div class="footer-bottom">
                 © 2026 Stellaris XR Studios. All rights reserved.
             </div>
+        </div>
     </footer>
 
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="script.js"></script>
 </body>
 

@@ -124,7 +124,12 @@
                 <a href="contact.html">Contact</a>
             </div>
 
-            <a href="contact.html" class="nav-cta">Request a Demo</a>
+            <div class="nav-actions">
+                <a href="contact.html" class="nav-cta">Request a Demo</a>
+                <a href="#"
+                    onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;"
+                    class="nav-cta">Schedule a Call</a>
+            </div>
 
             <button class="mobile-menu-button">☰</button>
         </nav>
@@ -143,6 +148,9 @@
         <a href="games.html">Games</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="#"
+            onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;">Schedule
+            a Call</a>
 
     </div>
 
@@ -150,7 +158,25 @@
     <main>
 
         <section class="hero">
-            <div class="hero-bg"></div>
+            <div class="hero-bg">
+                <video class="hero-video active" muted loop playsinline preload="auto" poster="assets/hero1.jpg">
+                    <source src="assets/hero1.webm" type="video/webm">
+                    <source src="assets/hero1.mp4" type="video/mp4">
+                </video>
+                <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero2.jpg">
+                    <source src="assets/hero2.webm" type="video/webm">
+                    <source src="assets/hero2.mp4" type="video/mp4">
+                </video>
+                <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero3.jpg">
+                    <source src="assets/hero3.webm" type="video/webm">
+                    <source src="assets/hero3.mp4" type="video/mp4">
+                </video>
+                <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero4.jpg">
+                    <source src="assets/hero4.webm" type="video/webm">
+                    <source src="assets/hero4.mp4" type="video/mp4">
+                </video>
+                <div class="hero-scrim"></div>
+            </div>
 
             <div class="hero-content">
                 <p class="eyebrow">Stellaris XR Studios</p>
@@ -183,29 +209,54 @@
                 </p>
 
                 <div class="services-grid">
-                    <a href="arch-viz.html" class="service-card">
-                        <h3>Arch Viz</h3>
-                        <p>Premium real estate and architectural visualization experiences.</p>
+                    <a href="arch-viz.html" class="service-card image-service-card">
+                        <img src="assets/svc-arch-viz.png" alt="Architectural visualization XR experience"
+                            loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Arch Viz</h3>
+                            <p>Premium real estate and architectural visualization experiences.</p>
+                        </div>
                     </a>
 
-                    <a href="vr-car-configurators.html" class="service-card">
-                        <h3>VR Car Configurators</h3>
-                        <p>Interactive vehicle showcases for automotive brands and dealers.</p>
+                    <a href="vr-car-configurators.html" class="service-card image-service-card">
+                        <img src="assets/svc-car-configurator.png" alt="VR car configurator experience"
+                            loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>VR Car Configurators</h3>
+                            <p>Interactive vehicle showcases for automotive brands and dealers.</p>
+                        </div>
                     </a>
 
-                    <a href="museum-attractions.html" class="service-card">
-                        <h3>Museum Attractions</h3>
-                        <p>Educational immersive exhibits built for visitor engagement.</p>
+                    <a href="museum-attractions.html" class="service-card image-service-card">
+                        <img src="assets/svc-museum.png" alt="Immersive museum XR exhibit" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Museum Attractions</h3>
+                            <p>Educational immersive exhibits built for visitor engagement.</p>
+                        </div>
                     </a>
 
-                    <a href="tourism-attractions.html" class="service-card">
-                        <h3>Tourism Attractions</h3>
-                        <p>Virtual destination previews and interactive cultural experiences.</p>
+                    <a href="tourism-attractions.html" class="service-card image-service-card">
+                        <img src="assets/svc-tourism.png" alt="Virtual tourism destination experience" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Tourism Attractions</h3>
+                            <p>Virtual destination previews and interactive cultural experiences.</p>
+                        </div>
                     </a>
 
-                    <a href="local-business-events.html" class="service-card">
-                        <h3>Local Business / Events</h3>
-                        <p>XR activations for launches, events and branded experiences.</p>
+                    <a href="local-business-events.html" class="service-card image-service-card">
+                        <img src="assets/svc-events.png" alt="XR brand activation for events" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Local Business / Events</h3>
+                            <p>XR activations for launches, events and branded experiences.</p>
+                        </div>
+                    </a>
+
+                    <a href="games.html" class="service-card image-service-card">
+                        <img src="assets/svc-games.png" alt="Cinematic game world" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Games</h3>
+                            <p>Cinematic interactive worlds built for players.</p>
+                        </div>
                     </a>
                 </div>
             </div>

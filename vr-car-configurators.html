@@ -27,6 +27,7 @@
         rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
     <script type="application/ld+json">
   {
@@ -108,7 +109,12 @@
                 <a href="contact.html">Contact</a>
             </div>
 
-            <a href="contact.html" class="nav-cta">Request a Demo</a>
+            <div class="nav-actions">
+                <a href="contact.html" class="nav-cta">Request a Demo</a>
+                <a href="#"
+                    onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;"
+                    class="nav-cta">Schedule a Call</a>
+            </div>
             <button class="mobile-menu-button">☰</button>
         </nav>
     </header>
@@ -126,13 +132,22 @@
         <a href="games.html">Games</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="#"
+            onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;">Schedule
+            a Call</a>
 
     </div>
 
     <main>
 
-        <section class="hero">
-            <div class="hero-bg"></div>
+        <section class="hero on-dark">
+            <div class="hero-bg">
+                <video class="hero-video active" autoplay muted loop playsinline preload="auto">
+                    <source src="assets/hero8.webm" type="video/webm">
+                    <source src="assets/hero8.mp4" type="video/mp4">
+                </video>
+                <div class="hero-scrim"></div>
+            </div>
 
             <div class="hero-content">
                 <p class="eyebrow">VR Car Configurators</p>
@@ -176,29 +191,44 @@
                 <h2 class="section-title">Personalize the vehicle experience.</h2>
 
                 <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Exterior Customization</h3>
-                        <p>Let customers change paint, wheels, trims and lighting in real time.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/car-exterior.png" alt="Vehicle exterior customization" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Exterior Customization</h3>
+                            <p>Let customers change paint, wheels, trims and lighting in real time.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Interior Exploration</h3>
-                        <p>Show cabin materials, dashboard layouts, seating options and premium details.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/car-interior.png" alt="Vehicle interior exploration" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Interior Exploration</h3>
+                            <p>Show cabin materials, dashboard layouts, seating options and premium details.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Feature Hotspots</h3>
-                        <p>Highlight safety systems, technology packages, performance features and add-ons.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/car-features.png" alt="Vehicle feature hotspots" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Feature Hotspots</h3>
+                            <p>Highlight safety systems, technology packages, performance features and add-ons.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Launch Events</h3>
-                        <p>Create immersive vehicle reveals for events, activations and marketing campaigns.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/car-launch.png" alt="Vehicle launch event reveal" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Launch Events</h3>
+                            <p>Create immersive vehicle reveals for events, activations and marketing campaigns.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Sales Tools</h3>
-                        <p>Give dealerships a memorable way to present vehicles and collect leads.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/car-sales.png" alt="Dealership sales tool" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Sales Tools</h3>
+                            <p>Give dealerships a memorable way to present vehicles and collect leads.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -314,6 +344,7 @@
             </div>
     </footer>
 
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="script.js"></script>
 </body>
 

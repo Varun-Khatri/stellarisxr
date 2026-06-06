@@ -27,6 +27,7 @@
         rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
     <script type="application/ld+json">
   {
@@ -109,7 +110,12 @@
                 <a href="contact.html">Contact</a>
             </div>
 
-            <a href="contact.html" class="nav-cta">Request a Demo</a>
+            <div class="nav-actions">
+                <a href="contact.html" class="nav-cta">Request a Demo</a>
+                <a href="#"
+                    onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;"
+                    class="nav-cta">Schedule a Call</a>
+            </div>
             <button class="mobile-menu-button">☰</button>
         </nav>
     </header>
@@ -127,14 +133,23 @@
         <a href="games.html">Games</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="#"
+            onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;">Schedule
+            a Call</a>
 
     </div>
 
 
     <main>
 
-        <section class="hero">
-            <div class="hero-bg"></div>
+        <section class="hero on-dark">
+            <div class="hero-bg">
+                <video class="hero-video active" autoplay muted loop playsinline preload="auto">
+                    <source src="assets/hero6.webm" type="video/webm">
+                    <source src="assets/hero6.mp4" type="video/mp4">
+                </video>
+                <div class="hero-scrim"></div>
+            </div>
 
             <div class="hero-content">
                 <p class="eyebrow">Tourism Attractions</p>
@@ -178,30 +193,46 @@
                 <h2 class="section-title">Experiences that inspire visits.</h2>
 
                 <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Virtual Destination Previews</h3>
-                        <p>Let visitors explore locations, attractions and experiences before booking or arriving.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/tourism-previews.png" alt="Virtual destination preview" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Virtual Destination Previews</h3>
+                            <p>Let visitors explore locations, attractions and experiences before booking or arriving.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Interactive Visitor Centres</h3>
-                        <p>Create modern digital installations for tourism offices and destination hubs.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/tourism-visitor-centres.png" alt="Interactive visitor centre" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Interactive Visitor Centres</h3>
+                            <p>Create modern digital installations for tourism offices and destination hubs.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Cultural Storytelling</h3>
-                        <p>Bring local history, traditions and communities to life through immersive narratives.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/tourism-culture.png" alt="Cultural storytelling experience" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Cultural Storytelling</h3>
+                            <p>Bring local history, traditions and communities to life through immersive narratives.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Hotel & Resort Experiences</h3>
-                        <p>Showcase rooms, amenities, venues and surrounding attractions in an immersive format.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/tourism-hotels.png" alt="Hotel and resort showcase" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Hotel & Resort Experiences</h3>
+                            <p>Showcase rooms, amenities, venues and surrounding attractions in an immersive format.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Event Attractions</h3>
-                        <p>Create XR installations for festivals, expos, launches and destination marketing campaigns.
-                        </p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/tourism-events.png" alt="Destination event attraction" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Event Attractions</h3>
+                            <p>Create XR installations for festivals, expos, launches and destination marketing
+                                campaigns.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -319,6 +350,7 @@
             </div>
     </footer>
 
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="script.js"></script>
 </body>
 
