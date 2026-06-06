@@ -27,6 +27,7 @@
         rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -107,7 +108,12 @@
                 <a href="contact.html">Contact</a>
             </div>
 
-            <a href="contact.html" class="nav-cta">Request a Demo</a>
+            <div class="nav-actions">
+                <a href="contact.html" class="nav-cta">Request a Demo</a>
+                <a href="#"
+                    onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;"
+                    class="nav-cta">Schedule a Call</a>
+            </div>
             <button class="mobile-menu-button">☰</button>
         </nav>
     </header>
@@ -125,13 +131,22 @@
         <a href="games.html">Games</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="#"
+            onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;">Schedule
+            a Call</a>
 
     </div>
 
     <main>
 
-        <section class="hero">
-            <div class="hero-bg"></div>
+        <section class="hero on-dark">
+            <div class="hero-bg">
+                <video class="hero-video active" autoplay muted loop playsinline preload="auto">
+                    <source src="assets/hero5.webm" type="video/webm">
+                    <source src="assets/hero5.mp4" type="video/mp4">
+                </video>
+                <div class="hero-scrim"></div>
+            </div>
 
             <div class="hero-content">
                 <p class="eyebrow">Museum Attractions</p>
@@ -175,29 +190,44 @@
                 <h2 class="section-title">Interactive exhibits with lasting impact.</h2>
 
                 <div class="services-grid">
-                    <div class="service-card">
-                        <h3>VR Exhibits</h3>
-                        <p>Transport visitors into reconstructed places, events and environments.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/museum-vr-exhibits.png" alt="Immersive VR exhibit" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>VR Exhibits</h3>
+                            <p>Transport visitors into reconstructed places, events and environments.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Interactive Stories</h3>
-                        <p>Create guided digital narratives for history, culture, science and education.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/museum-stories.png" alt="Interactive museum story" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Interactive Stories</h3>
+                            <p>Create guided digital narratives for history, culture, science and education.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Artifact Experiences</h3>
-                        <p>Let visitors explore objects, context and meaning through immersive interaction.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/museum-artifacts.png" alt="Artifact exploration experience" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Artifact Experiences</h3>
+                            <p>Let visitors explore objects, context and meaning through immersive interaction.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Visitor Attractions</h3>
-                        <p>Design memorable digital installations for permanent or temporary exhibits.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/museum-visitor.png" alt="Museum visitor attraction" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Visitor Attractions</h3>
+                            <p>Design memorable digital installations for permanent or temporary exhibits.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Educational XR</h3>
-                        <p>Make complex subjects easier to understand through spatial learning.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/museum-education.png" alt="Educational XR learning" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Educational XR</h3>
+                            <p>Make complex subjects easier to understand through spatial learning.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -314,6 +344,7 @@
             </div>
     </footer>
 
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="script.js"></script>
 </body>
 

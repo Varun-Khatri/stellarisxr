@@ -27,6 +27,7 @@
         rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -107,7 +108,12 @@
                 <a href="contact.html">Contact</a>
             </div>
 
-            <a href="contact.html" class="nav-cta">Request a Demo</a>
+            <div class="nav-actions">
+                <a href="contact.html" class="nav-cta">Request a Demo</a>
+                <a href="#"
+                    onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;"
+                    class="nav-cta">Schedule a Call</a>
+            </div>
             <button class="mobile-menu-button">☰</button>
         </nav>
     </header>
@@ -125,13 +131,22 @@
         <a href="games.html">Games</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="#"
+            onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;">Schedule
+            a Call</a>
 
     </div>
 
     <main>
 
-        <section class="hero">
-            <div class="hero-bg"></div>
+        <section class="hero on-dark">
+            <div class="hero-bg">
+                <video class="hero-video active" autoplay muted loop playsinline preload="auto">
+                    <source src="assets/hero7.webm" type="video/webm">
+                    <source src="assets/hero7.mp4" type="video/mp4">
+                </video>
+                <div class="hero-scrim"></div>
+            </div>
 
             <div class="hero-content">
                 <p class="eyebrow">Local Business / Events</p>
@@ -175,29 +190,44 @@
                 <h2 class="section-title">Experiences built for attention.</h2>
 
                 <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Event Activations</h3>
-                        <p>Immersive XR stations for festivals, conferences, launches and trade shows.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/events-activations.png" alt="Immersive event activation" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Event Activations</h3>
+                            <p>Immersive XR stations for festivals, conferences, launches and trade shows.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Product Showcases</h3>
-                        <p>Let visitors explore products, features and brand stories through interaction.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/events-products.png" alt="Interactive product showcase" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Product Showcases</h3>
+                            <p>Let visitors explore products, features and brand stories through interaction.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Retail Experiences</h3>
-                        <p>Create memorable in-store or pop-up experiences that increase engagement.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/events-retail.png" alt="Retail brand experience" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Retail Experiences</h3>
+                            <p>Create memorable in-store or pop-up experiences that increase engagement.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Launch Campaigns</h3>
-                        <p>Support new product, service or location launches with premium immersive demos.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/events-launch.png" alt="Launch campaign demo" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Launch Campaigns</h3>
+                            <p>Support new product, service or location launches with premium immersive demos.</p>
+                        </div>
                     </div>
 
-                    <div class="service-card">
-                        <h3>Branded Games</h3>
-                        <p>Interactive mini-games and experiences designed around your business or event.</p>
+                    <div class="service-card image-service-card" tabindex="0">
+                        <img src="assets/events-games.png" alt="Branded interactive game" loading="lazy" />
+                        <div class="service-card-content">
+                            <h3>Branded Games</h3>
+                            <p>Interactive mini-games and experiences designed around your business or event.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -314,6 +344,7 @@
             </div>
     </footer>
 
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="script.js"></script>
 </body>
 

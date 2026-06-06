@@ -37,45 +37,52 @@ const dots = document.querySelectorAll(".showcase-dots span");
 
 let currentHero = 0;
 
+const heroVideos = document.querySelectorAll(".hero-video");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 function updateHero(index) {
-    if (!heroTitle || !heroText || !heroBg) return;
-
-    heroTitle.innerHTML = heroData[index].title.replace(/\n/g, "<br>");
-    heroText.textContent = heroData[index].text;
-    heroBg.style.background = heroData[index].bg;
-
-    dots.forEach(dot => dot.classList.remove("active"));
-
-    if (dots[index]) {
-        dots[index].classList.add("active");
-    }
-
-    const isDark =
-        index === 1 ||
-        index === 2;
-
-    if (isDark) {
+    // Rotating headline + body copy only exists on the homepage hero.
+    // Other pages keep their own page-specific text, so update it only if present.
+    if (heroTitle && heroText) {
+        heroTitle.innerHTML = heroData[index].title.replace(/\n/g, "<br>");
+        heroText.textContent = heroData[index].text;
         heroTitle.style.color = "#ffffff";
         heroText.style.color = "rgba(255,255,255,0.72)";
-    } else {
-        heroTitle.style.color = "#000000";
-        heroText.style.color = "rgba(0,0,0,0.72)";
     }
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    if (dots[index]) dots[index].classList.add("active");
+
+    // Cycle the background videos on every page that has them.
+    heroVideos.forEach((video, i) => {
+        if (i === index) {
+            video.classList.add("active");
+            if (!reduceMotion) video.play().catch(() => { });
+        } else {
+            video.classList.remove("active");
+            video.pause();
+        }
+    });
 }
 
 function rotateHero() {
+    // Cycle across however many hero videos the page has (falls back to heroData).
+    const count = heroVideos.length || heroData.length;
+
     currentHero++;
 
-    if (currentHero >= heroData.length) {
+    if (currentHero >= count) {
         currentHero = 0;
     }
 
     updateHero(currentHero);
 }
 
-setInterval(rotateHero, 5000);
-
-updateHero(currentHero);
+// Only run the rotation if this page actually has a hero to drive.
+if (heroVideos.length || (heroTitle && heroText)) {
+    setInterval(rotateHero, 5000);
+    updateHero(currentHero);
+}
 
 // --------------------------------
 // MOBILE MENU
@@ -169,7 +176,7 @@ document.querySelectorAll(".fade-in").forEach(el => {
 // SERVICE CARD HOVER GLOW
 // --------------------------------
 
-const cards = document.querySelectorAll(".service-card");
+const cards = document.querySelectorAll(".service-card:not(.image-service-card)");
 
 cards.forEach(card => {
     card.addEventListener("mousemove", e => {
@@ -216,7 +223,7 @@ if (contactForm) {
             button.disabled = true;
         }
 
-        // REPLACE WITH YOUR GOOGLE APPS SCRIPT URL
+
         const scriptURL = "https://script.google.com/macros/s/AKfycbxsgovwSaeiaxtRvvmDFyD_86bLhSQ8bxa76gi3pwTH11SCMx8oJVrwlOJ3K33anKbU2Q/exec";
 
         const formData = new FormData(contactForm);
