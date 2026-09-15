@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+        UNLISTED PAGE
+        - Reachable only by direct link. Do not link to it from any page.
+        - Do NOT add it to sitemap.xml.
+        - Do NOT add it to robots.txt (a Disallow line would stop Google from
+          reading the noindex tag below, and would publicly list the URL).
+    -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="googlebot" content="noindex, nofollow" />
+
+    <title>Player Feedback | Stellaris XR Studios</title>
+    <meta name="description" content="Share feedback on a Stellaris XR Studios game." />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- FAVICONS -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+    <!-- LINK PREVIEWS (Discord, Slack, messages). These do not cause indexing. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Player Feedback | Stellaris XR Studios" />
+    <meta property="og:description" content="Played one of our games? Tell us how it went." />
+    <meta property="og:image" content="https://stellarisxr.com/assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --cyan: #47d1fe;
+            --blue: #1545b1;
+            --muted: #a9b1bb;
+            --field: rgba(255, 255, 255, 0.06);
+            --field-hover: rgba(255, 255, 255, 0.09);
+            --border: rgba(255, 255, 255, 0.14);
+            --error: #ff8a8a;
+            --gradient: linear-gradient(135deg, #47d1fe 0%, #1d7dff 45%, #1545b1 100%);
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+            --column: 640px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(900px 520px at 85% -10%, rgba(71, 209, 254, 0.14), transparent 60%),
+                radial-gradient(700px 480px at -10% 110%, rgba(21, 69, 177, 0.18), transparent 60%),
+                var(--black);
+            background-attachment: fixed;
+            color: var(--white);
+            line-height: 1.55;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+            color: inherit;
+        }
+
+        /* Author display rules (grid/flex) would otherwise override [hidden] */
+        [hidden] {
+            display: none !important;
+        }
+
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+        }
+
+        /* ---------- Header ---------- */
+
+        .fb-header {
+            width: min(100% - 48px, 1200px);
+            margin: 0 auto;
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
+
+        .fb-logo img {
+            height: 100px;
+            width: auto;
+        }
+
+        /* ---------- Layout ---------- */
+
+        .fb-main {
+            flex: 1;
+            width: min(100% - 48px, var(--column));
+            margin: 0 auto;
+            padding: 72px 0 96px;
+        }
+
+        .fb-title {
+            font-size: clamp(2.8rem, 10vw, 5.2rem);
+            line-height: 0.95;
+            letter-spacing: -0.06em;
+            font-weight: 600;
+        }
+
+        .fb-lede {
+            margin-top: 22px;
+            max-width: 52ch;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        /* ---------- Form ---------- */
+
+        .fb-form {
+            margin-top: 56px;
+            display: grid;
+            gap: 40px;
+        }
+
+        .fb-notice {
+            padding: 14px 18px;
+            border-radius: 16px;
+            border: 1px dashed rgba(255, 196, 87, 0.6);
+            background: rgba(255, 196, 87, 0.08);
+            color: #ffd98f;
+            font-size: 0.9rem;
+        }
+
+        .fb-field {
+            display: grid;
+            gap: 12px;
+            border: 0;
+            min-width: 0;
+        }
+
+        .fb-label {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        /* Legends sit outside the fieldset's grid, so space them manually */
+        legend.fb-label {
+            margin-bottom: 12px;
+        }
+
+        .fb-hint {
+            font-weight: 400;
+            color: var(--muted);
+        }
+
+        .fb-input,
+        .fb-select,
+        .fb-textarea {
+            width: 100%;
+            padding: 16px 18px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background-color: var(--field);
+            color: var(--white);
+            outline: none;
+            transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+        }
+
+        .fb-input:hover,
+        .fb-select:hover,
+        .fb-textarea:hover {
+            background-color: var(--field-hover);
+        }
+
+        .fb-input:focus-visible,
+        .fb-select:focus-visible,
+        .fb-textarea:focus-visible {
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 3px rgba(71, 209, 254, 0.2);
+        }
+
+        .fb-input::placeholder,
+        .fb-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.38);
+        }
+
+        .fb-textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .fb-select {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            background-image:
+                linear-gradient(45deg, transparent 50%, var(--white) 50%),
+                linear-gradient(135deg, var(--white) 50%, transparent 50%);
+            background-position:
+                calc(100% - 24px) calc(50% - 2px),
+                calc(100% - 18px) calc(50% - 2px);
+            background-size: 6px 6px, 6px 6px;
+            background-repeat: no-repeat;
+            padding-right: 48px;
+        }
+
+        .fb-select option {
+            background: #111111;
+            color: var(--white);
+        }
+
+        [aria-invalid="true"] {
+            border-color: var(--error) !important;
+        }
+
+        .fb-error {
+            color: var(--error);
+            font-size: 0.88rem;
+            min-height: 0;
+        }
+
+        .fb-error:empty {
+            display: none;
+        }
+
+        /* Chip-style radios */
+
+        .fb-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .fb-chip {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .fb-chip input {
+            position: absolute;
+            opacity: 0;
+            inset: 0;
+            cursor: pointer;
+        }
+
+        .fb-chip span {
+            display: inline-flex;
+            align-items: center;
+            min-height: 42px;
+            padding: 0 18px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--field);
+            font-size: 0.9rem;
+            transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+        }
+
+        .fb-chip:hover span {
+            background: var(--field-hover);
+        }
+
+        .fb-chip input:checked+span {
+            border-color: var(--cyan);
+            background: rgba(71, 209, 254, 0.14);
+        }
+
+        .fb-chip input:focus-visible+span {
+            box-shadow: 0 0 0 3px rgba(71, 209, 254, 0.35);
+        }
+
+        .fb-chips.is-invalid .fb-chip span {
+            border-color: rgba(255, 138, 138, 0.55);
+        }
+
+        /* Rating meter — the one bold moment on the page */
+
+        .fb-scale {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .fb-seg {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .fb-seg input {
+            position: absolute;
+            opacity: 0;
+            inset: 0;
+            cursor: pointer;
+        }
+
+        .fb-seg span {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            height: 88px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--field);
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            transition: background 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease);
+        }
+
+        .fb-seg:hover span {
+            background: var(--field-hover);
+        }
+
+        .fb-seg.is-filled span {
+            background: var(--gradient);
+            background-size: 500% 100%;
+            border-color: transparent;
+        }
+
+        /* Each filled segment shows its own slice of one continuous gradient */
+        .fb-seg:nth-child(1).is-filled span {
+            background-position: 0% 0;
+        }
+
+        .fb-seg:nth-child(2).is-filled span {
+            background-position: 25% 0;
+        }
+
+        .fb-seg:nth-child(3).is-filled span {
+            background-position: 50% 0;
+        }
+
+        .fb-seg:nth-child(4).is-filled span {
+            background-position: 75% 0;
+        }
+
+        .fb-seg:nth-child(5).is-filled span {
+            background-position: 100% 0;
+        }
+
+        .fb-seg input:focus-visible+span {
+            box-shadow: 0 0 0 3px rgba(71, 209, 254, 0.45);
+        }
+
+        .fb-scale.is-invalid .fb-seg span {
+            border-color: rgba(255, 138, 138, 0.55);
+        }
+
+        .fb-scale-readout {
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .fb-scale-readout strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Checkbox */
+
+        .fb-check {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .fb-check input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--cyan);
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .fb-divider {
+            border: 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .fb-subhead {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .fb-subhead+p {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .fb-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Honeypot: hidden from people, visible to naive bots */
+        .fb-trap {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        /* Submit */
+
+        .fb-actions {
+            display: grid;
+            gap: 14px;
+            justify-items: start;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 32px;
+            border-radius: 999px;
+            border: 0;
+            background: var(--gradient);
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 12px 40px rgba(71, 209, 254, 0.22);
+            transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:focus-visible {
+            outline: 3px solid var(--cyan);
+            outline-offset: 3px;
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: progress;
+        }
+
+        .fb-status {
+            font-size: 0.92rem;
+            color: var(--error);
+        }
+
+        .fb-status:empty {
+            display: none;
+        }
+
+        .fb-privacy {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        /* Success panel */
+
+        .fb-done {
+            margin-top: 56px;
+            padding: 40px 32px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            background: linear-gradient(to bottom, rgba(71, 209, 254, 0.1), rgba(255, 255, 255, 0.02));
+        }
+
+        .fb-done h2 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            font-weight: 600;
+        }
+
+        .fb-done p {
+            margin: 14px 0 28px;
+            color: var(--muted);
+            max-width: 46ch;
+        }
+
+        .fb-done:focus {
+            outline: none;
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            min-height: 46px;
+            padding: 0 24px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--cyan);
+            background: rgba(71, 209, 254, 0.08);
+        }
+
+        .btn-ghost:focus-visible {
+            outline: 3px solid var(--cyan);
+            outline-offset: 3px;
+        }
+
+        /* Footer */
+
+        .fb-footer {
+            width: min(100% - 48px, var(--column));
+            margin: 0 auto;
+            padding: 28px 0 36px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .fb-footer a {
+            text-decoration: none;
+        }
+
+        .fb-footer a:hover {
+            color: var(--cyan);
+        }
+
+        /* Entrance: one orchestrated moment on load */
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .fb-intro,
+        .fb-form {
+            animation: rise 0.8s var(--ease) both;
+        }
+
+        .fb-form {
+            animation-delay: 0.12s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .fb-main {
+                padding-top: 40px;
+            }
+
+            .fb-row {
+                grid-template-columns: 1fr;
+            }
+
+            .fb-seg span {
+                height: 64px;
+                padding: 10px;
+                font-size: 1.25rem;
+            }
+
+            .fb-actions,
+            .btn-primary {
+                width: 100%;
+            }
+
+            .fb-done {
+                padding: 32px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="fb-header">
+        <a href="index.html" class="fb-logo">
+            <img src="assets/logo-white.png" alt="Stellaris XR Studios" />
+        </a>
+    </header>
+
+    <main class="fb-main">
+
+        <section class="fb-intro" id="fb-intro">
+            <h1 class="fb-title">How did it play?</h1>
+            <p class="fb-lede">
+                Your notes go straight to the developer. Favourite moments, confusing puzzles, bugs,
+                comfort issues — all of it shapes the next build.
+            </p>
+        </section>
+
+        <noscript>
+            <p class="fb-notice" style="margin-top:40px">
+                This form needs JavaScript to send feedback. Please enable it, or email
+                <a href="mailto:varun@stellarisxr.com">varun@stellarisxr.com</a>.
+            </p>
+        </noscript>
+
+        <form id="fb-form" class="fb-form" novalidate>
+
+            <p class="fb-notice" id="fb-config-notice" hidden>
+                Preview mode: the Google Form isn't connected yet, so submissions are logged to the
+                browser console instead of being sent.
+            </p>
+
+            <!-- GAME -->
+            <div class="fb-field">
+                <label class="fb-label" for="fb-game">Which game did you play?</label>
+                <select class="fb-select" id="fb-game" name="game" aria-describedby="fb-game-error">
+                    <option value="" selected disabled>Choose a game</option>
+                </select>
+                <p class="fb-error" id="fb-game-error" aria-live="polite"></p>
+            </div>
+
+            <!-- PLATFORM -->
+            <fieldset class="fb-field">
+                <legend class="fb-label">What did you play on?</legend>
+                <div class="fb-chips" id="fb-platform" data-name="platform"></div>
+                <p class="fb-error" id="fb-platform-error" aria-live="polite"></p>
+            </fieldset>
+
+            <!-- RATING -->
+            <fieldset class="fb-field">
+                <legend class="fb-label">Overall, how was it?</legend>
+                <div class="fb-scale" id="fb-rating"></div>
+                <div class="fb-scale-readout" aria-hidden="true">
+                    <span>1 = didn't work for me</span>
+                    <strong id="fb-rating-readout">5 = loved it</strong>
+                </div>
+                <p class="fb-error" id="fb-rating-error" aria-live="polite"></p>
+            </fieldset>
+
+            <!-- ENJOYED -->
+            <div class="fb-field">
+                <label class="fb-label" for="fb-enjoyed">
+                    What stuck with you? <span class="fb-hint">(optional)</span>
+                </label>
+                <textarea class="fb-textarea" id="fb-enjoyed" name="enjoyed" maxlength="3000"
+                    placeholder="A moment, a puzzle, a feeling…"></textarea>
+            </div>
+
+            <!-- ISSUES -->
+            <div class="fb-field">
+                <label class="fb-label" for="fb-issues">
+                    What got in the way? <span class="fb-hint">(optional)</span>
+                </label>
+                <textarea class="fb-textarea" id="fb-issues" name="issues" maxlength="3000"
+                    placeholder="Bugs, confusing bits, where you got stuck. Where it happened helps a lot."></textarea>
+            </div>
+
+            <!-- COMFORT -->
+            <fieldset class="fb-field">
+                <legend class="fb-label">How comfortable was it? <span class="fb-hint">(optional)</span></legend>
+                <div class="fb-chips" id="fb-comfort" data-name="comfort"></div>
+            </fieldset>
+
+            <hr class="fb-divider" />
+
+            <!-- CONTACT -->
+            <div>
+                <h2 class="fb-subhead">Staying in touch</h2>
+                <p>Leave these blank to send feedback anonymously.</p>
+            </div>
+
+            <div class="fb-row">
+                <div class="fb-field">
+                    <label class="fb-label" for="fb-name">Name or handle</label>
+                    <input class="fb-input" type="text" id="fb-name" name="name" autocomplete="nickname"
+                        maxlength="120" />
+                </div>
+                <div class="fb-field">
+                    <label class="fb-label" for="fb-email">Email</label>
+                    <input class="fb-input" type="email" id="fb-email" name="email" autocomplete="email" maxlength="200"
+                        aria-describedby="fb-email-error" />
+                    <p class="fb-error" id="fb-email-error" aria-live="polite"></p>
+                </div>
+            </div>
+
+            <label class="fb-check">
+                <input type="checkbox" id="fb-contact-ok" name="contactOk" value="Yes" />
+                <span>You can email me with follow-up questions about this feedback.</span>
+            </label>
+
+            <!-- Filled from the ?build= link parameter, never shown -->
+            <input type="hidden" id="fb-build" name="build" />
+
+            <!-- Honeypot -->
+            <div class="fb-trap" aria-hidden="true">
+                <label for="fb-website">Leave this empty</label>
+                <input type="text" id="fb-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="fb-actions">
+                <button type="submit" class="btn-primary" id="fb-submit">Send feedback</button>
+                <p class="fb-status" id="fb-status" role="alert"></p>
+                <p class="fb-privacy">
+                    Responses are stored privately by Stellaris XR Studios and used only to improve our games.
+                </p>
+            </div>
+        </form>
+
+        <section class="fb-done" id="fb-done" tabindex="-1" hidden>
+            <h2 id="fb-done-title">Feedback sent.</h2>
+            <p id="fb-done-text">Thanks for playing and for taking the time. Every response gets read.</p>
+            <button type="button" class="btn-ghost" id="fb-again">Send more feedback</button>
+        </section>
+
+    </main>
+
+    <footer class="fb-footer">
+        <span>© 2026 Stellaris XR Studios</span>
+        <a href="index.html">stellarisxr.com</a>
+    </footer>
+
+    <script>
+        (() => {
+            "use strict";
+
+            // =========================================================
+            // CONFIG — the only part you need to edit.
+            // =========================================================
+            const CONFIG = {
+                // From the form's share link: docs.google.com/forms/d/e/<FORM_ID>/viewform
+                // (the long ID starting with 1FAIpQL, NOT the ID in the editor URL)
+                formId: "1FAIpQLSd7UyGvyFfukU-o5KkAFxrvMs3F8b95zlXbsRVEJhKS_s5bmw",
+
+                // entry.XXXXXXXXX IDs from Google's "Get pre-filled link".
+                // Leave a value as "" to skip sending that field.
+                entries: {
+                    game: "entry.1137337449",
+                    platform: "entry.647895191",
+                    rating: "entry.670672919",
+                    enjoyed: "entry.1627474681",
+                    issues: "entry.78726074",
+                    comfort: "entry.781100725",
+                    name: "entry.1316371090",
+                    email: "entry.1486693753",
+                    contactOk: "entry.2089313740",
+                    build: "entry.1818563912"
+                },
+
+                // label MUST match the Google Form option text exactly.
+                // slug is used in links: player-feedback.html?game=echo-fold
+                games: [
+                    { slug: "echo-fold", label: "Echo Fold" },
+                    { slug: "other", label: "Other" }
+                ],
+
+                // MUST match the Google Form options exactly.
+                platforms: [
+                    "Meta Quest 3",
+                    "Meta Quest 3S",
+                    "Meta Quest 2",
+                    "Meta Quest Pro",
+                    "PC VR",
+                    "Other"
+                ],
+
+                // MUST match the Google Form options exactly.
+                comfort: [
+                    "Comfortable the whole time",
+                    "A little uneasy",
+                    "Had to stop playing"
+                ],
+
+                ratingWords: ["Didn't work for me", "Rough", "Okay", "Good", "Loved it"]
+            };
+            // =========================================================
+
+            const $ = (id) => document.getElementById(id);
+
+            const form = $("fb-form");
+            const intro = $("fb-intro");
+            const done = $("fb-done");
+            const submitBtn = $("fb-submit");
+            const statusEl = $("fb-status");
+
+            const isConfigured =
+                CONFIG.formId && !CONFIG.formId.startsWith("PASTE") &&
+                !Object.values(CONFIG.entries).some((id) => /^entry\.00000000/.test(id));
+
+            const formUrl = `https://docs.google.com/forms/d/e/${CONFIG.formId}/formResponse`;
+            const params = new URLSearchParams(window.location.search);
+            let startedAt = Date.now();
+
+            if (!isConfigured) $("fb-config-notice").hidden = false;
+
+            // ---------- Render options ----------
+
+            const gameSelect = $("fb-game");
+            CONFIG.games.forEach(({ label }) => {
+                const opt = document.createElement("option");
+                opt.value = label;
+                opt.textContent = label;
+                gameSelect.appendChild(opt);
+            });
+
+            function renderChips(container, options) {
+                const name = container.dataset.name;
+                options.forEach((label, i) => {
+                    const wrap = document.createElement("label");
+                    wrap.className = "fb-chip";
+
+                    const input = document.createElement("input");
+                    input.type = "radio";
+                    input.name = name;
+                    input.value = label;
+                    input.id = `fb-${name}-${i}`;
+
+                    const text = document.createElement("span");
+                    text.textContent = label;
+
+                    wrap.append(input, text);
+                    container.appendChild(wrap);
+                });
+            }
+
+            renderChips($("fb-platform"), CONFIG.platforms);
+            renderChips($("fb-comfort"), CONFIG.comfort);
+
+            const scale = $("fb-rating");
+            const readout = $("fb-rating-readout");
+
+            for (let n = 1; n <= 5; n++) {
+                const wrap = document.createElement("label");
+                wrap.className = "fb-seg";
+
+                const input = document.createElement("input");
+                input.type = "radio";
+                input.name = "rating";
+                input.value = String(n);
+                input.setAttribute("aria-label", `${n} out of 5 — ${CONFIG.ratingWords[n - 1]}`);
+
+                const text = document.createElement("span");
+                text.textContent = n;
+                text.setAttribute("aria-hidden", "true");
+
+                wrap.append(input, text);
+                scale.appendChild(wrap);
+            }
+
+            function paintRating() {
+                const checked = scale.querySelector("input:checked");
+                const value = checked ? Number(checked.value) : 0;
+
+                scale.querySelectorAll(".fb-seg").forEach((seg, i) => {
+                    seg.classList.toggle("is-filled", i < value);
+                });
+
+                readout.textContent = value
+                    ? `${value} — ${CONFIG.ratingWords[value - 1]}`
+                    : "5 = loved it";
+            }
+
+            scale.addEventListener("change", paintRating);
+
+            // ---------- Prefill from link parameters ----------
+            // player-feedback.html?game=echo-fold&build=0.4.2
+
+            const gameParam = (params.get("game") || "").toLowerCase();
+            const matchedGame = CONFIG.games.find((g) => g.slug === gameParam);
+            if (matchedGame) gameSelect.value = matchedGame.label;
+
+            const buildParam = (params.get("build") || "").slice(0, 40);
+            $("fb-build").value = buildParam;
+
+            // ---------- Validation ----------
+
+            const checkedValue = (name) => {
+                const el = form.querySelector(`input[name="${name}"]:checked`);
+                return el ? el.value : "";
+            };
+
+            function setError(key, message, target) {
+                const errorEl = $(`fb-${key}-error`);
+                if (errorEl) errorEl.textContent = message;
+
+                if (target) {
+                    if (target.classList.contains("fb-chips") || target.classList.contains("fb-scale")) {
+                        target.classList.toggle("is-invalid", Boolean(message));
+                    } else {
+                        target.setAttribute("aria-invalid", message ? "true" : "false");
+                    }
+                }
+            }
+
+            function validate() {
+                const problems = [];
+
+                const game = gameSelect.value;
+                setError("game", game ? "" : "Choose the game you played.", gameSelect);
+                if (!game) problems.push(gameSelect);
+
+                const platformBox = $("fb-platform");
+                const platform = checkedValue("platform");
+                setError("platform", platform ? "" : "Choose what you played on.", platformBox);
+                if (!platform) problems.push(platformBox.querySelector("input"));
+
+                const rating = checkedValue("rating");
+                setError("rating", rating ? "" : "Pick a number from 1 to 5.", scale);
+                if (!rating) problems.push(scale.querySelector("input"));
+
+                const emailEl = $("fb-email");
+                const email = emailEl.value.trim();
+                const wantsContact = $("fb-contact-ok").checked;
+                let emailMessage = "";
+
+                if (email && !emailEl.checkValidity()) {
+                    emailMessage = "Check the email address — it doesn't look complete.";
+                } else if (wantsContact && !email) {
+                    emailMessage = "Add your email so we can follow up, or untick the box below.";
+                }
+
+                setError("email", emailMessage, emailEl);
+                if (emailMessage) problems.push(emailEl);
+
+                return problems;
+            }
+
+            // Clear a field's error as soon as the player fixes it
+            form.addEventListener("change", (e) => {
+                const name = e.target.name;
+                if (name === "game") setError("game", "", gameSelect);
+                if (name === "platform") setError("platform", "", $("fb-platform"));
+                if (name === "rating") setError("rating", "", scale);
+                if (name === "contactOk" && !e.target.checked) setError("email", "", $("fb-email"));
+            });
+
+            $("fb-email").addEventListener("input", (e) => setError("email", "", e.target));
+
+            // ---------- Submit ----------
+
+            function buildPayload() {
+                const values = {
+                    game: gameSelect.value,
+                    platform: checkedValue("platform"),
+                    rating: checkedValue("rating"),
+                    enjoyed: $("fb-enjoyed").value.trim(),
+                    issues: $("fb-issues").value.trim(),
+                    comfort: checkedValue("comfort"),
+                    name: $("fb-name").value.trim(),
+                    email: $("fb-email").value.trim(),
+                    contactOk: $("fb-contact-ok").checked ? "Yes" : "",
+                    build: $("fb-build").value.trim()
+                };
+
+                const body = new URLSearchParams();
+                Object.entries(values).forEach(([key, value]) => {
+                    const entryId = CONFIG.entries[key];
+                    if (entryId && value) body.append(entryId, value);
+                });
+
+                return { values, body };
+            }
+
+            function showDone(message, title) {
+                form.hidden = true;
+                if (title) $("fb-done-title").textContent = title;
+                intro.hidden = true;
+                if (message) $("fb-done-text").textContent = message;
+                done.hidden = false;
+                done.focus();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+
+            function setSending(sending) {
+                submitBtn.disabled = sending;
+                submitBtn.textContent = sending ? "Sending…" : "Send feedback";
+            }
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                statusEl.textContent = "";
+
+                const problems = validate();
+                if (problems.length) {
+                    problems[0].focus();
+                    return;
+                }
+
+                // Bots: filled the hidden field, or submitted impossibly fast.
+                // Pretend it worked so they don't retry.
+                const tooFast = Date.now() - startedAt < 2500;
+                if ($("fb-website").value || tooFast) {
+                    showDone();
+                    return;
+                }
+
+                const { values, body } = buildPayload();
+
+                if (!isConfigured) {
+                    console.info("[Player feedback] Preview mode — not sent. Payload:");
+                    console.table(values);
+                    showDone(
+                        "Nothing was sent. Open the browser console to see what would have been submitted.",
+                        "Preview only."
+                    );
+                    return;
+                }
+
+                setSending(true);
+
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 15000);
+
+                try {
+                    // Google Forms doesn't allow CORS, so the response is opaque.
+                    // A resolved promise means the request reached Google.
+                    await fetch(formUrl, {
+                        method: "POST",
+                        mode: "no-cors",
+                        body,
+                        signal: controller.signal
+                    });
+
+                    showDone();
+                } catch (error) {
+                    console.error("[Player feedback] Submit failed:", error);
+                    statusEl.textContent =
+                        "Feedback wasn't sent — check your connection and try again. " +
+                        "If it keeps failing, email varun@stellarisxr.com.";
+                } finally {
+                    clearTimeout(timeout);
+                    setSending(false);
+                }
+            });
+
+            // ---------- Reset for another response ----------
+
+            $("fb-again").addEventListener("click", () => {
+                const keepGame = gameSelect.value;
+
+                form.reset();
+                gameSelect.value = keepGame; // likely giving feedback on the same game
+                $("fb-build").value = buildParam;
+                paintRating();
+
+                done.hidden = true;
+                intro.hidden = false;
+                form.hidden = false;
+                startedAt = Date.now();
+                gameSelect.focus();
+            });
+        })();
+    </script>
+</body>
+
+</html>
