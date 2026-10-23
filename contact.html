@@ -19,13 +19,12 @@
     <meta property="og:description"
         content="Request a demo for XR experiences, VR apps, immersive business tools and games." />
     <meta property="og:url" content="https://stellarisxr.com/contact.html" />
-    <meta property="og:image" content="https://stellarisxr.com/assets/og-image.jpg" />
+    <meta property="og:image" content="https://stellarisxr.com/assets/og-image.png" />
 
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
 
@@ -62,25 +61,17 @@
 
 <body>
 
-    <div class="preloader">
-
-        <div class="preloader-logo">
-            <img src="assets/sxr-mark-gradient.png" alt="Stellaris XR Studios" loading="lazy" />
-        </div>
-
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-        <nav class="nav">
-            <a href="index.html" class="logo">
-                <img src="assets/logo-white.png" alt="Stellaris XR Studios Logo" loading="lazy" />
+        <nav class="nav" aria-label="Main">
+            <a href="index.html" class="logo" aria-label="Stellaris XR Studios home">
+                <img src="assets/stellaris-wordmark-white-crop.png" alt="Stellaris XR Studios" width="108" height="15" />
             </a>
-
             <div class="nav-links">
-                <a href="index.html">Home</a>
-
+                <a href="games.html">Games</a>
                 <div class="dropdown">
-                    <button class="dropdown-toggle">Services</button>
+                    <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">VR Experiences</button>
                     <div class="dropdown-menu">
                         <a href="arch-viz.html">Arch Viz</a>
                         <a href="vr-car-configurators.html">VR Car Configurators</a>
@@ -89,211 +80,148 @@
                         <a href="local-business-events.html">Local Business / Events</a>
                     </div>
                 </div>
-
-                <a href="games.html">Games</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
+                <a href="about.html">Studio</a>
+                <a href="contact.html" aria-current="page">Contact</a>
             </div>
-
-            <div class="nav-actions">
-                <a href="#contact-form" class="nav-cta">Request a Demo</a>
-                <a href="#"
-                    onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;"
-                    class="nav-cta">Schedule a Call</a>
-            </div>
-            <button class="mobile-menu-button">☰</button>
+            <button class="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span></button>
         </nav>
     </header>
 
-    <div class="mobile-menu">
-
-        <button class="mobile-close">×</button>
-
-        <a href="index.html">Home</a>
-        <a href="arch-viz.html">Arch Viz</a>
-        <a href="vr-car-configurators.html">VR Car Configurators</a>
-        <a href="museum-attractions.html">Museum Attractions</a>
-        <a href="tourism-attractions.html">Tourism Attractions</a>
-        <a href="local-business-events.html">Local Business / Events</a>
-        <a href="games.html">Games</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="#"
-            onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;">Schedule
-            a Call</a>
-
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <button class="mobile-close" aria-label="Close menu"></button>
+        <nav aria-label="Mobile">
+            <a href="index.html">Home</a>
+            <a href="games.html">Games</a>
+            <a href="index.html#experiences">VR Experiences</a>
+            <a class="sub" href="arch-viz.html">Arch Viz</a>
+            <a class="sub" href="vr-car-configurators.html">VR Car Configurators</a>
+            <a class="sub" href="museum-attractions.html">Museum Attractions</a>
+            <a class="sub" href="tourism-attractions.html">Tourism Attractions</a>
+            <a class="sub" href="local-business-events.html">Local Business / Events</a>
+            <a href="about.html">Studio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html#request" class="btn">Request a demo</a>
     </div>
 
-    <main>
+    <main id="main">
 
-        <section class="hero on-dark">
-            <div class="hero-bg">
-                <video class="hero-video active" muted loop playsinline preload="auto" poster="assets/hero1.jpg">
-                    <source src="assets/hero1.webm" type="video/webm">
-                    <source src="assets/hero1.mp4" type="video/mp4">
-                </video>
-                <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero2.jpg">
-                    <source src="assets/hero2.webm" type="video/webm">
-                    <source src="assets/hero2.mp4" type="video/mp4">
-                </video>
-                <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero3.jpg">
-                    <source src="assets/hero3.webm" type="video/webm">
-                    <source src="assets/hero3.mp4" type="video/mp4">
-                </video>
-                <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero4.jpg">
-                    <source src="assets/hero4.webm" type="video/webm">
-                    <source src="assets/hero4.mp4" type="video/mp4">
-                </video>
-                <div class="hero-scrim"></div>
-            </div>
-
-            <div class="hero-content">
-                <p class="eyebrow">Contact</p>
-                <h1>Let’s build something immersive.</h1>
-                <p>
-                    Request a demo or tell us about your XR, VR, business experience or game project.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="#contact-form" class="btn-primary">Request a Demo</a>
-                    <a href="mailto:varun@stellarisxr.com" class="btn-secondary">Email Us</a>
+        <section class="section light center" id="request">
+            <div class="container">
+                <div data-reveal>
+                    <p class="t-kicker">Contact</p>
+                    <h1 class="t-hero">Start a project.</h1>
+                    <p class="t-sub fg-2" style="max-width:34ch;margin-top:20px">Request a demo or tell us about your VR experience or game project. We reply by email.</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="section dark" id="contact-form">
-            <div class="section-inner feature-panel fade-in">
-
-                <div>
-                    <p class="eyebrow">Request a Demo</p>
-                    <h2 class="section-title">Tell us what you want to create.</h2>
-                    <p class="section-subtitle">
-                        Share a few details about your project and we’ll get back to you.
-                    </p>
-
-                    <br />
-
-                    <p class="section-subtitle">
-                        Based in Halifax, Nova Scotia, Canada.
-                    </p>
-                </div>
-
-                <form class="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required />
-                    <input type="email" name="email" placeholder="Email Address" required />
-                    <input type="text" name="company" placeholder="Company / Organization" />
-
-                    <select name="service" required>
-                        <option value="">Project Type</option>
-                        <option value="Arch Viz">Arch Viz</option>
-                        <option value="VR Car Configurator">VR Car Configurator</option>
-                        <option value="Museum Attraction">Museum Attraction</option>
-                        <option value="Tourism Attraction">Tourism Attraction</option>
-                        <option value="Local Business / Event">Local Business / Event</option>
-                        <option value="Games">Games</option>
-                        <option value="Other">Other</option>
-                    </select>
-
-                    <textarea name="message" placeholder="Tell us about your project" required></textarea>
-
-                    <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none;" />
-
-                    <div class="cta-button-group">
-
-                        <button type="submit" class="btn-primary">
-                            Request Demo
-                        </button>
-
-                        <div class="calendly-divider">
-                            <span>OR</span>
+                <div class="form-card" data-reveal style="--delay:120ms">
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="cf-name">Name</label>
+                                <input id="cf-name" type="text" name="name" autocomplete="name" required />
+                            </div>
+                            <div class="field">
+                                <label for="cf-email">Email</label>
+                                <input id="cf-email" type="email" name="email" autocomplete="email" required />
+                            </div>
                         </div>
-
-                        <a href="#" class="btn-primary" onclick="Calendly.initPopupWidget({
-      url: 'https://cal.com/stellarisxr/consultation'
-    }); return false;">
-                            Schedule a Call
-                        </a>
-
-                    </div>
-                </form>
-
+                        <div class="field">
+                            <label for="cf-company">Company or organization (optional)</label>
+                            <input id="cf-company" type="text" name="company" autocomplete="organization" />
+                        </div>
+                        <div class="field">
+                            <label for="cf-service">Project type</label>
+                            <select id="cf-service" name="service" required>
+                                <option value="">Choose one</option>
+                                <option value="Arch Viz">Arch Viz</option>
+                                <option value="VR Car Configurator">VR Car Configurator</option>
+                                <option value="Museum Attraction">Museum Attraction</option>
+                                <option value="Tourism Attraction">Tourism Attraction</option>
+                                <option value="Local Business / Event">Local Business / Event</option>
+                                <option value="Games">Games</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="cf-message">About your project</label>
+                            <textarea id="cf-message" name="message" required></textarea>
+                        </div>
+                        <div class="trap" aria-hidden="true">
+                            <label for="cf-website">Leave this empty</label>
+                            <input id="cf-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+                        </div>
+                        <div class="form-foot">
+                            <button type="submit" class="btn">Request a demo</button>
+                            <p class="form-status" role="status" aria-live="polite"></p>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
 
-        <section class="section light">
-            <div class="section-inner fade-in">
-                <p class="eyebrow">Studio Location</p>
-                <h2 class="section-title">Halifax-based. Built for Canada and beyond.</h2>
-                <p class="section-subtitle">
-                    Stellaris XR Studios works with real estate developers, automotive companies, local businesses,
-                    tourism teams, museums and players.
-                </p>
+        <section class="section dark center">
+            <div class="container" data-reveal>
+                <h2 class="t-h1">Prefer to talk?</h2>
+                <p class="t-sub fg-2" style="max-width:34ch;margin-top:14px">Book a call with the studio, or write to us directly.</p>
+                <div class="actions">
+                    <a href="https://cal.com/stellarisxr/consultation" class="btn" data-schedule target="_blank" rel="noopener">Book a call</a>
+                    <a href="mailto:varun@stellarisxr.com" class="btn ghost">varun@stellarisxr.com</a>
+                </div>
+                <div class="specs">
+                    <div><p class="spec-value">Halifax</p><p class="spec-label">Nova Scotia, Canada</p></div>
+                    <div><p class="spec-value">VR games</p><p class="spec-label">Press, publishing and playtests</p></div>
+                    <div><p class="spec-value">VR experiences</p><p class="spec-label">Real estate, automotive, museums, tourism, events</p></div>
+                </div>
             </div>
         </section>
 
     </main>
 
     <footer class="footer">
-        <div class="footer-inner">
-            <div>
-                <img src="assets/stellaris-wordmark-white.png" alt="Stellaris XR Studios" loading="lazy" />
-                <p>Immersive experiences. Limitless possibilities.</p>
-            </div>
-
-            <div>
-                <h4>Services</h4>
-                <div class="footer-links">
-                    <a href="games.html">Games</a>
-                    <a href="arch-viz.html">Arch Viz</a>
-                    <a href="vr-car-configurators.html">VR Car Configurators</a>
-                    <a href="museum-attractions.html">Museum Attractions</a>
-                    <a href="tourism-attractions.html">Tourism Attractions</a>
-                    <a href="local-business-events.html">Local Business / Events</a>
+        <div class="container">
+            <div class="footer-top">
+                <img class="footer-logo" src="assets/logo-white-crop.png" alt="Stellaris XR Studios" width="800" height="408" loading="lazy" />
+                <div class="footer-cols">
+                    <div>
+                        <h2>Games</h2>
+                        <ul>
+                            <li><a href="games.html#echo-fold">Echo Fold</a></li>
+                            <li><a href="games.html#rc-rampage">Radio Control Rampage</a></li>
+                            <li><a href="games.html#news">Devlogs and press</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>VR Experiences</h2>
+                        <ul>
+                        <li><a href="arch-viz.html">Arch Viz</a></li>
+                        <li><a href="vr-car-configurators.html">VR Car Configurators</a></li>
+                        <li><a href="museum-attractions.html">Museum Attractions</a></li>
+                        <li><a href="tourism-attractions.html">Tourism Attractions</a></li>
+                        <li><a href="local-business-events.html">Local Business / Events</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Studio</h2>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="https://cal.com/stellarisxr/consultation" data-schedule target="_blank" rel="noopener">Book a call</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Follow</h2>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/company/stellaris-xr-studios/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://x.com/StellarisXR" target="_blank" rel="noopener noreferrer">X</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-            <div>
-                <h4>Company</h4>
-                <div class="footer-links">
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-
-            <div>
-                <h4>Contact</h4>
-                <p>Halifax, Nova Scotia, Canada</p>
-                <p>varun@stellarisxr.com</p>
-                <div class="social-links">
-
-                    <a href="https://www.linkedin.com/company/stellaris-xr-studios/" target="_blank"
-                        rel="noopener noreferrer" aria-label="LinkedIn">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 5 2.12 5 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-1 1.8-2.2 3.9-2.2 4.2 0 5 2.8 5 6.4V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.7 1.9-2.7 3.8V24h-4V8z" />
-                        </svg>
-
-                    </a>
-
-                    <a href="https://x.com/StellarisXR" target="_blank" rel="noopener noreferrer"
-                        aria-label="Twitter X">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.847h-7.406l-5.8-7.584-6.64 7.584H.474l8.6-9.83L0 1.153h7.594l5.243 6.932L18.901 1.153zm-1.292 19.39h2.039L6.486 3.348H4.298L17.609 20.544z" />
-                        </svg>
-
-                    </a>
-
-                </div>
-            </div>
-
             <div class="footer-bottom">
-                © 2026 Stellaris XR Studios. All rights reserved.
+                <p>Copyright &copy; 2026 Stellaris XR Studios. All rights reserved.</p>
+                <p>Halifax, Nova Scotia, Canada &nbsp;&nbsp; <a href="mailto:varun@stellarisxr.com">varun@stellarisxr.com</a></p>
             </div>
+        </div>
     </footer>
 
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>

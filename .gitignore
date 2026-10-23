@@ -8,3 +8,6 @@ Thumbs.db
 # Optional build directories
 dist/
 node_modules/
+
+# Design tooling output
+.taste-skill/

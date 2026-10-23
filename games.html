@@ -19,12 +19,11 @@
     <meta property="og:description"
         content="Cinematic games and immersive interactive worlds from Stellaris XR Studios." />
     <meta property="og:url" content="https://stellarisxr.com/games.html" />
-    <meta property="og:image" content="https://stellarisxr.com/assets/og-image.jpg" />
+    <meta property="og:image" content="https://stellarisxr.com/assets/og-image.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -71,25 +70,17 @@
 
 <body>
 
-    <div class="preloader">
-
-        <div class="preloader-logo">
-            <img src="assets/sxr-mark-gradient.png" alt="Stellaris XR Studios" loading="lazy" />
-        </div>
-
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-        <nav class="nav">
-            <a href="index.html" class="logo">
-                <img src="assets/logo-white.png" alt="Stellaris XR Studios Logo" loading="lazy" />
+        <nav class="nav" aria-label="Main">
+            <a href="index.html" class="logo" aria-label="Stellaris XR Studios home">
+                <img src="assets/stellaris-wordmark-white-crop.png" alt="Stellaris XR Studios" width="108" height="15" />
             </a>
-
             <div class="nav-links">
-                <a href="index.html">Home</a>
-
+                <a href="games.html" aria-current="page">Games</a>
                 <div class="dropdown">
-                    <button class="dropdown-toggle">Services</button>
+                    <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">VR Experiences</button>
                     <div class="dropdown-menu">
                         <a href="arch-viz.html">Arch Viz</a>
                         <a href="vr-car-configurators.html">VR Car Configurators</a>
@@ -98,232 +89,198 @@
                         <a href="local-business-events.html">Local Business / Events</a>
                     </div>
                 </div>
-
-                <a href="games.html">Games</a>
-                <a href="about.html">About</a>
+                <a href="about.html">Studio</a>
                 <a href="contact.html">Contact</a>
             </div>
-
-            <div class="nav-actions">
-                <a href="contact.html" class="nav-cta">Request a Demo</a>
-                <a href="#"
-                    onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;"
-                    class="nav-cta">Schedule a Call</a>
-            </div>
-            <button class="mobile-menu-button">☰</button>
+            <button class="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span></button>
         </nav>
     </header>
 
-    <div class="mobile-menu">
-
-        <button class="mobile-close">×</button>
-
-        <a href="index.html">Home</a>
-        <a href="arch-viz.html">Arch Viz</a>
-        <a href="vr-car-configurators.html">VR Car Configurators</a>
-        <a href="museum-attractions.html">Museum Attractions</a>
-        <a href="tourism-attractions.html">Tourism Attractions</a>
-        <a href="local-business-events.html">Local Business / Events</a>
-        <a href="games.html">Games</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="#"
-            onclick="Calendly.initPopupWidget({url: 'https://cal.com/stellarisxr/consultation'}); return false;">Schedule
-            a Call</a>
-
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <button class="mobile-close" aria-label="Close menu"></button>
+        <nav aria-label="Mobile">
+            <a href="index.html">Home</a>
+            <a href="games.html">Games</a>
+            <a href="index.html#experiences">VR Experiences</a>
+            <a class="sub" href="arch-viz.html">Arch Viz</a>
+            <a class="sub" href="vr-car-configurators.html">VR Car Configurators</a>
+            <a class="sub" href="museum-attractions.html">Museum Attractions</a>
+            <a class="sub" href="tourism-attractions.html">Tourism Attractions</a>
+            <a class="sub" href="local-business-events.html">Local Business / Events</a>
+            <a href="about.html">Studio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html#request" class="btn">Request a demo</a>
     </div>
 
+    <main id="main">
 
-    <main>
-
-        <section class="hero on-dark">
-            <div class="hero-bg">
-                <video class="hero-video active" autoplay muted loop playsinline preload="auto">
-                    <source src="assets/hero9.webm" type="video/webm">
-                    <source src="assets/hero9.mp4" type="video/mp4">
-                </video>
-                <div class="hero-scrim"></div>
+        <nav class="local-nav" aria-label="Games">
+            <div class="container">
+                <span class="local-title">Games</span>
+                <div class="local-links">
+                    <a href="#echo-fold">Echo Fold</a>
+                    <a href="#rc-rampage">Radio Control Rampage</a>
+                    <a href="#news">Devlogs</a>
+                </div>
+                <a href="contact.html#request" class="btn small">Request a demo</a>
             </div>
+        </nav>
 
-            <div class="hero-content">
-                <p class="eyebrow">Games</p>
-                <h1>Worlds built to be felt.</h1>
-                <p>
-                    Cinematic interactive experiences, atmospheric worlds and immersive gameplay from Stellaris XR
-                    Studios.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="#projects" class="btn-primary">View Projects</a>
-                    <a href="contact.html" class="btn-secondary">Work With Us</a>
+        <section class="section dark p-hero">
+            <div class="container">
+                <div data-reveal>
+                    <p class="t-kicker">Games</p>
+                    <h1 class="t-hero">Worlds built to be felt.</h1>
+                    <p class="t-sub">Cinematic worlds, atmospheric spaces and immersive gameplay from Stellaris XR Studios.</p>
+                    <div class="actions">
+                    <a href="#echo-fold" class="btn">See the games</a>
+                    <a href="contact.html" class="btn ghost">Work with us</a>
+                    </div>
+                </div>
+                <div class="p-hero-media" data-reveal style="--delay:150ms">
+                    <video data-loop muted loop playsinline preload="metadata" poster="assets/echo-fold.jpg" aria-label="Echo Fold gameplay captured in a headset"><source src="assets/hero3.mp4" type="video/mp4"></video>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="section dark">
-            <div class="section-inner fade-in">
-                <p class="eyebrow">Current Projects</p>
-                <h2 class="section-title">Games in development.</h2>
-                <p class="section-subtitle">
-                    Our games currently in development.
-                </p>
-
-                <div class="services-grid">
-
-                    <div class="service-card image-service-card" tabindex="0">
-                        <img src="assets/echo-fold.png" alt="Echo Fold concept art" loading="lazy" />
-                        <div class="service-card-content">
-                            <h3>Echo Fold</h3>
-                            <p>
-                                A VR puzzle platformer focused on traversal, spatial interaction and immersive
-                                environmental challenges.
-                            </p>
-                        </div>
+        <section class="section light" id="echo-fold">
+            <div class="container game">
+                <div class="game-media" data-reveal>
+                    <img src="assets/echo-fold.jpg" alt="Echo Fold: a hooded figure among floating stone ruins" width="1536" height="1024" loading="lazy" />
+                </div>
+                <div class="game-text" data-reveal style="--delay:120ms">
+                    <h2 class="t-h2">Echo Fold</h2>
+                    <p class="t-sub">A VR puzzle platformer focused on traversal, spatial interaction and immersive environmental challenges.</p>
+                    <div class="game-meta">
+                        <span><b>Platform</b>&nbsp;&nbsp;VR</span>
+                        <span><b>Genre</b>&nbsp;&nbsp;Puzzle platformer</span>
+                        <span><b>Status</b>&nbsp;&nbsp;In development</span>
                     </div>
-
-                    <div class="service-card image-service-card" tabindex="0">
-                        <img src="assets/rc-rampage.png" alt="Radio Control Rampage racing screenshot" loading="lazy" />
-                        <div class="service-card-content">
-                            <h3>Radio Control Rampage</h3>
-                            <p>
-                                Fast-paced RC-inspired racing built for mobile with compact tracks, tight controls and
-                                chaotic fun.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="service-card image-service-card" tabindex="0">
-                        <img src="assets/devlogs.png" alt="Behind-the-scenes game development workspace"
-                            loading="lazy" />
-                        <div class="service-card-content">
-                            <h3>Devlogs</h3>
-                            <p>
-                                Behind-the-scenes development updates, prototypes and progress from ongoing projects.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="service-card image-service-card" tabindex="0">
-                        <img src="assets/press-kit.png" alt="Press kit media assets preview" loading="lazy" />
-                        <div class="service-card-content">
-                            <h3>Press Kit</h3>
-                            <p>
-                                Media assets, screenshots, branding resources and studio information coming soon.
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-        <section class="section dark">
-            <div class="section-inner feature-panel fade-in">
-
-                <div>
-                    <p class="eyebrow">Game Philosophy</p>
-                    <h2 class="section-title">Atmosphere first. Interaction always.</h2>
-                    <p class="section-subtitle">
-                        We design games around mood, presence and discovery — creating spaces players want to inhabit,
-                        explore and remember.
-                    </p>
-                    <br />
-                    <p class="section-subtitle">
-                        Our approach blends cinematic presentation, clean interaction design and immersive
-                        worldbuilding.
-                    </p>
+        <section class="section dark" id="rc-rampage">
+            <div class="container game flip">
+                <div class="game-media" data-reveal>
+                    <img src="assets/rc-rampage.jpg" alt="Radio Control Rampage: RC cars racing across a kitchen table" width="1536" height="1024" loading="lazy" />
                 </div>
+                <div class="game-text" data-reveal style="--delay:120ms">
+                    <h2 class="t-h2">Radio Control Rampage</h2>
+                    <p class="t-sub">Fast-paced RC racing built for mobile, with compact tracks, tight controls and chaotic fun.</p>
+                    <div class="game-meta">
+                        <span><b>Platform</b>&nbsp;&nbsp;Mobile</span>
+                        <span><b>Genre</b>&nbsp;&nbsp;Racing</span>
+                        <span><b>Status</b>&nbsp;&nbsp;In development</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dark" id="news">
+            <div class="duo">
+                <div class="duo-tile on-image" data-reveal>
+                    <div class="duo-bg"><img src="assets/devlogs.jpg" alt="A game development workspace with Unity and code" width="1536" height="1024" loading="lazy" /></div>
+                    <h2 class="t-h1">Devlogs.</h2>
+                    <p class="t-sub">Behind-the-scenes updates, prototypes and progress. Coming soon.</p>
+                </div>
+                <div class="duo-tile on-image" data-reveal style="--delay:120ms">
+                    <div class="duo-bg"><img src="assets/press-kit.jpg" alt="Stellaris XR Studios press kit materials" width="1536" height="1024" loading="lazy" /></div>
+                    <h2 class="t-h1">Press kit.</h2>
+                    <p class="t-sub">Screenshots, branding and studio information. Coming soon.</p>
+                    <div class="actions"><a href="mailto:varun@stellarisxr.com" class="more">Press enquiries</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section dark center">
+            <div class="container">
+                <h2 class="statement" data-reveal>Atmosphere first. Interaction always.</h2>
+                <p class="statement-dim" data-reveal style="--delay:100ms">We design games around mood, presence and discovery: spaces players want to inhabit, explore and remember.</p>
             </div>
         </section>
 
         <section class="section light">
-            <div class="section-inner feature-panel fade-in">
-                <div>
-                    <p class="eyebrow">Beyond Entertainment</p>
-                    <h2 class="section-title">Game systems shape our XR work.</h2>
-                    <p class="section-subtitle">
-                        The same design principles behind great games — interaction, feedback, progression and emotional
-                        engagement — also power our business XR experiences.
-                    </p>
+            <div class="container split">
+                <div data-reveal>
+                    <h2 class="t-h2">Game systems shape our XR work.</h2>
+                    <div class="prose" style="margin-top:28px">
+                        <p>The principles behind great games, <strong>interaction, feedback, progression and emotional engagement</strong>, also power the VR experiences we build for businesses.</p>
+                        <p><a class="inline-link" href="index.html#experiences">See our VR experiences</a></p>
+                    </div>
                 </div>
-
+                <div data-reveal style="--delay:120ms">
+                    <h3 class="t-h3">Coming to this page.</h3>
+                    <ul class="for-list">
+                        <li>Trailers</li>
+                        <li>Screenshots</li>
+                        <li>Steam pages</li>
+                        <li>Announcements</li>
+                        <li>Dev updates</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section class="section dark cta-section">
-            <div class="section-inner fade-in">
-                <p class="eyebrow">Stay Connected</p>
-                <h2 class="section-title">Follow the worlds we’re building.</h2>
-                <p>
-                    Check back for trailers, screenshots, Steam pages, announcements and dev updates.
-                </p>
-                <a href="contact.html" class="btn-primary">Contact the Studio</a>
+        <section class="section dark center cta">
+            <div class="container" data-reveal>
+                <h2 class="t-h1">Follow the worlds we&#x27;re building.</h2>
+                <p class="t-sub">Trailers, screenshots, store pages and dev updates will land here first.</p>
+                <div class="actions">
+                    <a href="https://x.com/StellarisXR" class="btn" target="_blank" rel="noopener noreferrer">Follow on X</a>
+                    <a href="https://www.linkedin.com/company/stellaris-xr-studios/" class="btn ghost" target="_blank" rel="noopener noreferrer">Follow on LinkedIn</a>
+                </div>
             </div>
         </section>
 
     </main>
 
     <footer class="footer">
-        <div class="footer-inner">
-            <div>
-                <img src="assets/stellaris-wordmark-white.png" alt="Stellaris XR Studios" loading="lazy" />
-                <p>Immersive experiences. Limitless possibilities.</p>
-            </div>
-
-            <div>
-                <h4>Services</h4>
-                <div class="footer-links">
-                    <a href="games.html">Games</a>
-                    <a href="arch-viz.html">Arch Viz</a>
-                    <a href="vr-car-configurators.html">VR Car Configurators</a>
-                    <a href="museum-attractions.html">Museum Attractions</a>
-                    <a href="tourism-attractions.html">Tourism Attractions</a>
-                    <a href="local-business-events.html">Local Business / Events</a>
+        <div class="container">
+            <div class="footer-top">
+                <img class="footer-logo" src="assets/logo-white-crop.png" alt="Stellaris XR Studios" width="800" height="408" loading="lazy" />
+                <div class="footer-cols">
+                    <div>
+                        <h2>Games</h2>
+                        <ul>
+                            <li><a href="games.html#echo-fold">Echo Fold</a></li>
+                            <li><a href="games.html#rc-rampage">Radio Control Rampage</a></li>
+                            <li><a href="games.html#news">Devlogs and press</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>VR Experiences</h2>
+                        <ul>
+                        <li><a href="arch-viz.html">Arch Viz</a></li>
+                        <li><a href="vr-car-configurators.html">VR Car Configurators</a></li>
+                        <li><a href="museum-attractions.html">Museum Attractions</a></li>
+                        <li><a href="tourism-attractions.html">Tourism Attractions</a></li>
+                        <li><a href="local-business-events.html">Local Business / Events</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Studio</h2>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="https://cal.com/stellarisxr/consultation" data-schedule target="_blank" rel="noopener">Book a call</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Follow</h2>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/company/stellaris-xr-studios/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://x.com/StellarisXR" target="_blank" rel="noopener noreferrer">X</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-            <div>
-                <h4>Company</h4>
-                <div class="footer-links">
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-
-            <div>
-                <h4>Contact</h4>
-                <p>Halifax, Nova Scotia, Canada</p>
-                <p>varun@stellarisxr.com</p>
-                <div class="social-links">
-
-                    <a href="https://www.linkedin.com/company/stellaris-xr-studios/" target="_blank"
-                        rel="noopener noreferrer" aria-label="LinkedIn">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 5 2.12 5 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-1 1.8-2.2 3.9-2.2 4.2 0 5 2.8 5 6.4V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.7 1.9-2.7 3.8V24h-4V8z" />
-                        </svg>
-
-                    </a>
-
-                    <a href="https://x.com/StellarisXR" target="_blank" rel="noopener noreferrer"
-                        aria-label="Twitter X">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.847h-7.406l-5.8-7.584-6.64 7.584H.474l8.6-9.83L0 1.153h7.594l5.243 6.932L18.901 1.153zm-1.292 19.39h2.039L6.486 3.348H4.298L17.609 20.544z" />
-                        </svg>
-
-                    </a>
-
-                </div>
-            </div>
-
             <div class="footer-bottom">
-                © 2026 Stellaris XR Studios. All rights reserved.
+                <p>Copyright &copy; 2026 Stellaris XR Studios. All rights reserved.</p>
+                <p>Halifax, Nova Scotia, Canada &nbsp;&nbsp; <a href="mailto:varun@stellarisxr.com">varun@stellarisxr.com</a></p>
             </div>
+        </div>
     </footer>
 
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
