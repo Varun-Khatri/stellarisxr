@@ -33,7 +33,7 @@
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600&display=swap" rel="stylesheet" />
 
     <style>
         :root {
@@ -625,13 +625,90 @@
             }
         }
     </style>
+    <!-- Site look: black and white, blue pill actions (matches styles.css) -->
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --muted: rgba(255, 255, 255, 0.64);
+            --field: rgba(255, 255, 255, 0.07);
+            --field-hover: rgba(255, 255, 255, 0.11);
+            --border: rgba(255, 255, 255, 0.16);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+            background: var(--black);
+            letter-spacing: -0.011em;
+        }
+
+        .fb-logo img {
+            height: 15px;
+        }
+
+        .fb-title,
+        .fb-done h2 {
+            font-weight: 600;
+            letter-spacing: -0.035em;
+            line-height: 1.03;
+        }
+
+        .fb-chip span,
+        .btn-primary,
+        .btn-ghost {
+            border-radius: 980px;
+        }
+
+        .fb-seg span,
+        .fb-input,
+        .fb-select,
+        .fb-textarea {
+            border-radius: 12px;
+        }
+
+        .fb-done {
+            border: 0;
+            border-radius: 28px;
+            background: var(--field);
+        }
+
+        .fb-seg.is-filled span {
+            background: #47d1fe;
+            color: #000000;
+        }
+
+        .btn-primary {
+            background: #1545b1;
+            color: #ffffff;
+            box-shadow: none;
+            transition: transform 120ms cubic-bezier(0.23, 1, 0.32, 1), background-color 200ms ease;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #1b52cc;
+        }
+
+        .btn-primary:active:not(:disabled) {
+            transform: scale(0.97);
+        }
+
+        .fb-divider {
+            height: 48px;
+            border: 0;
+            background: none;
+        }
+
+        .fb-footer {
+            border-top: 0;
+        }
+    </style>
 </head>
 
 <body>
 
     <header class="fb-header">
         <a href="index.html" class="fb-logo">
-            <img src="assets/logo-white.png" alt="Stellaris XR Studios" />
+            <img src="assets/stellaris-wordmark-white-crop.png" alt="Stellaris XR Studios" />
         </a>
     </header>
 
