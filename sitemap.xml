@@ -48,4 +48,14 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://stellarisxr.com/privacy-android.html</loc>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://stellarisxr.com/privacy-ios.html</loc>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
